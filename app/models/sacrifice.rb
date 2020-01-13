@@ -1,0 +1,2 @@
+class Sacrifice < ApplicationRecord
+end
