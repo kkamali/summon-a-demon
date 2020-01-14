@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_213924) do
+ActiveRecord::Schema.define(version: 2020_01_14_210707) do
 
   create_table "demons", force: :cascade do |t|
     t.string "circle"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_213924) do
     t.integer "summon_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "demon_id"
     t.index ["summon_id"], name: "index_sacrifices_on_summon_id"
   end
 
