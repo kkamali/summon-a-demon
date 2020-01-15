@@ -1,5 +1,7 @@
 require 'pry'
 class DemonsController < ApplicationController
+  before_action :is_logged_in?, only: [:new, :create]
+
   def index
     @demons = Demon.all
   end
@@ -15,7 +17,6 @@ class DemonsController < ApplicationController
 
   def create
     @demon = Demon.create(demon_params)
-    binding.pry
     redirect_to demon_path(@demon)
   end
 

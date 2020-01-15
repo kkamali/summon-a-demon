@@ -1,4 +1,6 @@
 class SummonsController < ApplicationController
+  before_action :is_logged_in?
+
   def new
     @summon = Summon.new(user_id: params[:user_id])
   end
