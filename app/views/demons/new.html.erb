@@ -1,0 +1,7 @@
+<h1> Demon Request From </h1>
+
+<%= form_for @demon do |f| %>
+  Name: <%= f.text_field :name %><br>
+  Circle: <%= f.text_field :circle %><br>
+  <%= f.submit "Request Demon" %>
+<% end %>
