@@ -10,7 +10,13 @@
   </head>
 
   <body>
+    <div>
+      <%= link_to "All Demons", demons_path %>
+      <% if user_signed_in? %>
+        <%= link_to "Home", user_path(current_user) %>
+      <% end %>
+      <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
+    </div>
     <%= yield %>
-    <div><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></div>
   </body>
 </html>

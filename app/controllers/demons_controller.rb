@@ -1,3 +1,4 @@
+require 'pry'
 class DemonsController < ApplicationController
   def index
     @demons = Demon.all
@@ -14,11 +15,13 @@ class DemonsController < ApplicationController
 
   def create
     @demon = Demon.create(demon_params)
+    binding.pry
+    redirect_to demon_path(@demon)
   end
 
   private
 
   def demon_params
-    params.require(:demon).permit(:name, :circle, sacrifices_attributes: [:name, :quantity])
+    params.require(:demon).permit(:name, :title, sacrifices_attributes: [:name, :quantity])
   end
 end

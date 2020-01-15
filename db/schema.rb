@@ -10,13 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_210707) do
+ActiveRecord::Schema.define(version: 2020_01_13_213924) do
 
   create_table "demons", force: :cascade do |t|
-    t.string "circle"
-    t.string "sacrifices"
-    t.string "email"
-    t.string "password_digest"
+    t.string "title"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -25,17 +22,16 @@ ActiveRecord::Schema.define(version: 2020_01_14_210707) do
   create_table "sacrifices", force: :cascade do |t|
     t.string "name"
     t.string "quantity"
-    t.integer "summon_id"
+    t.integer "demon_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "demon_id"
-    t.index ["summon_id"], name: "index_sacrifices_on_summon_id"
+    t.index ["demon_id"], name: "index_sacrifices_on_demon_id"
   end
 
   create_table "summons", force: :cascade do |t|
-    t.string "ingredients"
     t.integer "user_id"
     t.integer "demon_id"
+    t.string "ingredients"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["demon_id"], name: "index_summons_on_demon_id"
