@@ -10,9 +10,14 @@ Rails.application.routes.draw do
   end
 
   root "welcome#home"
+
   resources :users do
     resources :summons, only: [:new, :create, :show, :index]
   end
-  resources :demons
+
+  resources :demons do
+    resources :summons, only: [:new, :create]
+  end
+
   resources :summons
 end

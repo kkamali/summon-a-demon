@@ -2,4 +2,8 @@
 <br>
 <%= @demon.title %>
 <br>
-<%= @demon.sacrifices.first.name %>
+<% @demon.sacrifices.each do |sacrifice| %>
+  <%= sacrifice.name %>
+<% end %>
+
+<%= link_to "Summon this demon?", new_demon_summon_path(@demon) %>

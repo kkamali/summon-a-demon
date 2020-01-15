@@ -2,7 +2,11 @@ class SummonsController < ApplicationController
   before_action :is_logged_in?
 
   def new
-    @summon = Summon.new(user_id: params[:user_id])
+    if params.has_key?(:demon_id)
+      @summon = Summon.new(demon_id: params[:demon_id])
+    else
+      @summon = Summon.new
+    end
   end
 
   def create
@@ -13,6 +17,6 @@ class SummonsController < ApplicationController
   private
 
   def summon_params
-    params.require(:summon).permit(:user_id, :demon_id)
+    params.require(:summon).permit(:user_id, :demon_id, :sacrifice_id)
   end
 end

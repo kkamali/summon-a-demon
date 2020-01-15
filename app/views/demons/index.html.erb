@@ -1,3 +1,7 @@
 <% @demons.each do |demon| %>
   <%= link_to "#{demon.name}'s' Page", demon_path(demon)%>
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "Request A Demon", new_demon_path %>
+<% end %>
