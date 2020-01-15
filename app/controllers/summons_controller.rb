@@ -1,3 +1,4 @@
+require 'pry'
 class SummonsController < ApplicationController
   before_action :is_logged_in?
 
@@ -11,6 +12,7 @@ class SummonsController < ApplicationController
 
   def create
     @summon = Summon.create(summon_params)
+    binding.pry
     redirect_to user_path(current_user)
   end
 

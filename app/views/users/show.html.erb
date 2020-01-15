@@ -3,7 +3,7 @@
 Your current summons:
 <ul>
   <% @summons.each do |summon| %>
-    <%= "Summoned #{summon.demon.name} with #{summon.ingredients}"%>
+    <%= "Summoned #{summon.demon.name} with #{summon.sacrifice.name}(s)"%>
   <% end %>
 </ul>
 </div>
