@@ -31,10 +31,11 @@ ActiveRecord::Schema.define(version: 2020_01_13_213924) do
   create_table "summons", force: :cascade do |t|
     t.integer "user_id"
     t.integer "demon_id"
-    t.string "ingredients"
+    t.integer "sacrifice_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["demon_id"], name: "index_summons_on_demon_id"
+    t.index ["sacrifice_id"], name: "index_summons_on_sacrifice_id"
     t.index ["user_id"], name: "index_summons_on_user_id"
   end
 

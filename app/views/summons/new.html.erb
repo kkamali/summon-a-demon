@@ -1,5 +1,6 @@
 <%= form_for @summon do |f| %>
   <%= f.hidden_field :user_id %>
   <%= collection_select(:summon, :demon_id, Demon.all, :id, :name) %>
+  <%= collection_select(:summon, :sacrifice_id, Sacrifice.all, :id, :name) %>
   <%= f.submit "Summon The Demon" %>
 <% end %>

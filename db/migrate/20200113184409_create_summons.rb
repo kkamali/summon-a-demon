@@ -3,7 +3,7 @@ class CreateSummons < ActiveRecord::Migration[6.0]
     create_table :summons do |t|
       t.belongs_to :user
       t.belongs_to :demon
-      t.string :ingredients
+      t.belongs_to :sacrifice
 
       t.timestamps
     end
