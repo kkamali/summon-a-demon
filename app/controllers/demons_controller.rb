@@ -9,6 +9,7 @@ class DemonsController < ApplicationController
 
   def new
     @demon = Demon.new
+    @demon.sacrifices.build
   end
 
   def create
@@ -18,6 +19,6 @@ class DemonsController < ApplicationController
   private
 
   def demon_params
-    params.require(:demon).permit(:name, :circle)
+    params.require(:demon).permit(:name, :circle, sacrifices_attributes: [:name, :quantity])
   end
 end
