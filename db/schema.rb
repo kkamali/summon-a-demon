@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_213924) do
+ActiveRecord::Schema.define(version: 2020_01_16_000954) do
 
   create_table "demons", force: :cascade do |t|
     t.string "title"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_213924) do
     t.integer "sacrifice_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "successful"
     t.index ["demon_id"], name: "index_summons_on_demon_id"
     t.index ["sacrifice_id"], name: "index_summons_on_sacrifice_id"
     t.index ["user_id"], name: "index_summons_on_user_id"

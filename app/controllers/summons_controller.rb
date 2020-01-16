@@ -12,7 +12,12 @@ class SummonsController < ApplicationController
 
   def create
     @summon = Summon.create(summon_params)
-    binding.pry
+    @summon.succeeded?
+    if @summon.successful
+      flash[:notice] = "You successfully summoned #{@summon.demon.name}"
+    else
+      flash[:alert] = "Beware! You did not summon #{@summon.demon.name}"
+    end
     redirect_to user_path(current_user)
   end
 
