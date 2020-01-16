@@ -7,10 +7,6 @@
 <h1>Welcome <%= current_user.name %></h1>
 <div>
 Your current summons:
-  <ul>
-    <% @summons.each do |summon| %>
-      <li><%= "Summoned #{summon.demon.name} with #{summon.sacrifice.name}(s)"%></li>
-    <% end %>
-  </ul>
+  <%= render 'summons/summons'%>
 </div>
 <%= link_to "Summon another demon?", new_user_summon_path(current_user) %>

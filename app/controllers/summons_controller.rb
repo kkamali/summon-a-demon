@@ -2,6 +2,10 @@ require 'pry'
 class SummonsController < ApplicationController
   before_action :is_logged_in?
 
+  def index
+    @summons = Summon.where(user_id: current_user.id, successful: true)
+  end
+
   def new
     if params.has_key?(:demon_id)
       @summon = Summon.new(demon_id: params[:demon_id])
@@ -16,7 +20,7 @@ class SummonsController < ApplicationController
     if @summon.successful
       flash[:notice] = "You successfully summoned #{@summon.demon.name}"
     else
-      flash[:alert] = "Beware! You did not summon #{@summon.demon.name}"
+      flash[:alert] = "Beware! You failed to summon #{@summon.demon.name}"
     end
     redirect_to user_path(current_user)
   end
