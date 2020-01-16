@@ -1,5 +1,5 @@
-  <ul>
-    <% @summons.each do |summon| %>
-      <li><%= "Summoned #{summon.demon.name} with #{summon.sacrifice.name}(s)"%></li>
-    <% end %>
-  </ul>
+<ul>
+  <% summons.uniq{ |s| s.demon.name && s.sacrifice.name }.each do |summon| %>
+    <li><%= "#{summon.demon.name} with #{summon.sacrifice.name}(s)"%></li>
+  <% end %>
+</ul>

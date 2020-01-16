@@ -1,1 +1,4 @@
-<%= render 'summons' %>
+Successful Summons
+<%= render partial: 'summons', locals: {summons: @successes } %>
+Failed Summons
+<%= render partial: 'summons', locals: {summons: @failures } %>

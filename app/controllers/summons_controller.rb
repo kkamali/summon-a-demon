@@ -3,7 +3,8 @@ class SummonsController < ApplicationController
   before_action :is_logged_in?
 
   def index
-    @summons = Summon.where(user_id: current_user.id, successful: true)
+    @successes = Summon.where(user_id: current_user.id, successful: true)
+    @failures = Summon.where(user_id: current_user.id, successful: false)
   end
 
   def new

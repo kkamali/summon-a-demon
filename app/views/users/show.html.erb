@@ -6,7 +6,10 @@
 
 <h1>Welcome <%= current_user.name %></h1>
 <div>
-Your current summons:
-  <%= render 'summons/summons'%>
+  Your current summons:
+  The Successes:
+  <%= render partial: 'summons/summons', locals: { summons: @successes }%>
+  The Failures
+  <%= render partial: 'summons/summons', locals: { summons: @failures }%>
 </div>
 <%= link_to "Summon another demon?", new_user_summon_path(current_user) %>
