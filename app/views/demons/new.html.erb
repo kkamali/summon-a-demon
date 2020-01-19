@@ -1,5 +1,20 @@
 <h1> Demon Request From </h1>
 
+<% if @demon.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@demon.errors.count, "error") %>
+      prohibited this demon from being requested:
+    </h2>
+
+    <ul>
+    <% @demon.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @demon do |f| %>
   Name: <%= f.text_field :name %><br>
   Title: <%= f.text_field :title %><br>

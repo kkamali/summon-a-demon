@@ -17,7 +17,11 @@ class DemonsController < ApplicationController
 
   def create
     @demon = Demon.create(demon_params)
-    redirect_to demon_path(@demon)
+    if @demon.valid?
+      redirect_to demon_path(@demon)
+    else
+      render :new
+    end
   end
 
   private
